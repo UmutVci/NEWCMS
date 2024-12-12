@@ -11,17 +11,16 @@ public class CustomerService extends BaseService<CustomerEntity, CustomerDTO, Lo
 
     private final ICustomerRepository customerRepository;
 
+
     public CustomerService(ICustomerRepository customerRepository, BaseMapper<CustomerEntity, CustomerDTO> mapper) {
         super(customerRepository, mapper);
         this.customerRepository = customerRepository;
     }
-public CustomerEntity createCustomer(String name, int age) {
+
+    public CustomerEntity createCustomer(String name, int age) {
         CustomerEntity customer = new CustomerEntity();
         customer.setName(name);
         customer.setAge(age);
         return customerRepository.save(customer);
     }
 }
-
-
-

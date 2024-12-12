@@ -4,7 +4,6 @@ import com.backend.domain.entities.HallEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-
+@Repository("hallRepository")
 public interface IHallRepository extends BaseRepository<HallEntity, Long> {
 }

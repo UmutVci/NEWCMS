@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BaseService<T, D, ID extends Serializable> {
+public abstract class BaseService<T, D, ID extends Serializable> {
 
     private final BaseRepository<T, ID> repository;
     private final BaseMapper<T, D> mapper;
