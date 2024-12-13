@@ -12,13 +12,13 @@ public class SeatEntity extends BaseEntity  {
 
 
     @Column(nullable = false)
-    private int seatRow;
+    private String seatRow;
 
     @Column(nullable = false)
     private int seatColumn;
 
     @Column(nullable = false)
-    private boolean isBooked;
+    private boolean isBooked = false;
 
     @ManyToOne
     @JoinColumn(name = "hall_id", nullable = false)

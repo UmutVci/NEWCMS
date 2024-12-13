@@ -1,5 +1,6 @@
 package com.backend.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public abstract class BaseEntity {
         this.id = id;
     }
 
+   // @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") must be added if we have to show a format at the API
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
