@@ -13,6 +13,13 @@ import java.time.LocalDateTime;
 @Component
 public class SessionMapper implements BaseMapper<SessionEntity, SessionDTO>
 {
+    private final IMovieRepository movieRepository;
+    private final IHallRepository hallRepository;
+
+    public SessionMapper(IMovieRepository movieRepository, IHallRepository hallRepository) {
+        this.movieRepository = movieRepository;
+        this.hallRepository = hallRepository;
+    }
     public SessionDTO toDto(SessionEntity sessionEntity)
     {
         if ( sessionEntity == null )
@@ -28,7 +35,7 @@ public class SessionMapper implements BaseMapper<SessionEntity, SessionDTO>
         return dto;
     }
 
-    public SessionEntity toEntity(SessionDTO sessionDTO, IMovieRepository movieRepository, IHallRepository hallRepository)
+    public SessionEntity toEntity(SessionDTO sessionDTO)
     {
         SessionEntity entity = new SessionEntity();
         entity.setId(sessionDTO.getId());

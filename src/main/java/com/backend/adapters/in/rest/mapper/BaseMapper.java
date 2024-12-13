@@ -9,4 +9,5 @@ public interface BaseMapper<T, D> {
     D toDto(T entity);
 
     T toEntity(D dto);
+
 }
