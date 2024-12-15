@@ -15,9 +15,6 @@ public class ReservationMapper implements BaseMapper<ReservationEntity, Reservat
 
     @Override
     public ReservationDTO toDto(ReservationEntity reservationEntity) {
-        if (reservationEntity == null) {
-            return null;
-        }
         ReservationDTO dto = new ReservationDTO();
         dto.setId(reservationEntity.getId());
         dto.setCustomer(customerMapper.toDto(reservationEntity.getCustomer()));
@@ -28,10 +25,6 @@ public class ReservationMapper implements BaseMapper<ReservationEntity, Reservat
 
     @Override
     public ReservationEntity toEntity(ReservationDTO reservationDTO) {
-        if (reservationDTO == null) {
-            return null;
-        }
-
         ReservationEntity entity = new ReservationEntity();
         entity.setCustomer(customerMapper.toEntity(reservationDTO.getCustomer()));
         entity.setSeat(seatMapper.toEntity(reservationDTO.getSeats()));
