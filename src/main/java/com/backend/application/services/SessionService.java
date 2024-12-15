@@ -1,16 +1,12 @@
-package com.backend.application.services;
+package com.backend.Application.services;
 
 import com.backend.adapters.in.rest.dto.SessionDTO;
-
 import com.backend.adapters.in.rest.mapper.SessionMapper;
-
 import com.backend.domain.entities.SessionEntity;
-
 import com.backend.domain.repository.ISessionRepository;
 import com.backend.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 import java.time.LocalDateTime;
 

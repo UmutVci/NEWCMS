@@ -1,17 +1,10 @@
-package com.backend.application.services;
+package com.backend.Application.services;
 
-import com.backend.adapters.in.rest.dto.ReservationDTO;
-import com.backend.adapters.in.rest.mapper.ReservationMapper;
-import com.backend.domain.entities.ReservationEntity;
-import com.backend.domain.repository.IReservationRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ReservationService {
+    /*
     @Autowired
     private IReservationRepository reservationRepository;
     @Autowired
@@ -31,4 +24,7 @@ public class ReservationService {
         ReservationEntity savedEntity = reservationRepository.save(reservationEntity);
         return reservationMapper.toDto(savedEntity);
     }
+    */
+    // ARKADASLAR KIM BURAYA MAPPER KODLARINI YAZDI AQ YANLISLIKLA MI GELDI BILMIYOM KALSIN BURDA
+    // KIM KODLUCAKSA BURAYI SILEBILIR ZATEN RESERVATIONMAPPER DA AYNI KODLAR VAR
 }

@@ -13,8 +13,6 @@ import java.util.List;
 @Table(name = "movies")
 public class MovieEntity extends BaseEntity  {
 
-
-
     @Column(name = "movie_id")
     private String title;
     private String genre;

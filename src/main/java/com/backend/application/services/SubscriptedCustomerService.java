@@ -1,9 +1,8 @@
-package com.backend.application.services;
+package com.backend.Application.services;
 
 import com.backend.adapters.in.rest.dto.SubscriptedCustomerDTO;
 import com.backend.adapters.in.rest.mapper.SubscriptedCustomerMapper;
 import com.backend.domain.entities.SubscriptedCustomer;
-
 import com.backend.domain.repository.ISubscriptionCustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
