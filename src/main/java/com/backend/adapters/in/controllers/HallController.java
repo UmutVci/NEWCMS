@@ -22,13 +22,14 @@ public class HallController extends BaseController<HallEntity, HallDTO, Long> {
         super(service);
     }
 
-    @GetMapping("isSeatsFull/{id}")
+    @GetMapping("/{id}/seats/full")
     public ResponseEntity<Boolean> isAllSeatsFull(@PathVariable("id") Long id) {
         return ResponseEntity.ok(hallService.isAllSeatsFullByHallId(id));
     }
 
-    @GetMapping("showEmptySeats/{id}")
+    @GetMapping("/{id}/seats/empty")
     public ResponseEntity<List<SeatDTO>> showEmptySeats(@PathVariable("id") Long id) {
         return ResponseEntity.ok(hallService.showEmptySeats(id));
     }
+
 }
