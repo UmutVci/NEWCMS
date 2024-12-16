@@ -1,4 +1,4 @@
-package com.backend.Application.services;
+package com.backend.application.services;
 
 import com.backend.domain.entities.MovieEntity;
 import jakarta.persistence.criteria.CriteriaBuilder;

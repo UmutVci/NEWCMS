@@ -1,4 +1,4 @@
-package com.backend.Application.services;
+package com.backend.application.services;
 
 import com.backend.adapters.in.rest.dto.HallDTO;
 import com.backend.adapters.in.rest.mapper.BaseMapper;
@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class HallService extends BaseService<HallEntity, HallDTO, Long> {
@@ -35,6 +36,19 @@ public class HallService extends BaseService<HallEntity, HallDTO, Long> {
         }
         return true;
     }
+
+    public List<SeatEntity> showEmptySeats(Long id) {
+        HallEntity hall = iHallRepository.findById(id)
+                .orElseThrow(
+                        () -> new ResourceNotFoundException("Hall with that id couldnt find " + id)
+                );
+        List<SeatEntity> seatEntities = hall.getSeats();
+        return seatEntities
+                .stream()
+                .filter(c -> !c.isBooked())
+                .collect(Collectors.toList());
+    }
+
 
 
 }

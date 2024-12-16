@@ -1,4 +1,4 @@
-package com.backend.Application.services;
+package com.backend.application.services;
 
 import com.backend.adapters.in.rest.dto.SubscriptedCustomerDTO;
 import com.backend.adapters.in.rest.mapper.SubscriptedCustomerMapper;

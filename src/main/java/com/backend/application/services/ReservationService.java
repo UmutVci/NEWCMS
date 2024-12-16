@@ -1,4 +1,4 @@
-package com.backend.Application.services;
+package com.backend.application.services;
 
 import org.springframework.stereotype.Service;
 
@@ -25,6 +25,5 @@ public class ReservationService {
         return reservationMapper.toDto(savedEntity);
     }
     */
-    // ARKADASLAR KIM BURAYA MAPPER KODLARINI YAZDI AQ YANLISLIKLA MI GELDI BILMIYOM KALSIN BURDA
-    // KIM KODLUCAKSA BURAYI SILEBILIR ZATEN RESERVATIONMAPPER DA AYNI KODLAR VAR
+
 }
