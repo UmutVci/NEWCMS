@@ -15,5 +15,4 @@ public class CustomerEntity extends BaseEntity {
     @Column(name ="age", nullable = false)
     private int age;
 
-
 }

@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class HallMapper implements BaseMapper<HallEntity, HallDTO> {
 
-    private SeatMapper seatMapper;
-    private SessionMapper sessionMapper;
+    private final SeatMapper seatMapper = new SeatMapper();
+    private final SessionMapper sessionMapper = new SessionMapper();
 
     @Override
     public HallDTO toDto(HallEntity hallEntity) {

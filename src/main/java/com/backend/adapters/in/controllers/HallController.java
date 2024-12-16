@@ -2,7 +2,6 @@ package com.backend.adapters.in.controllers;
 
 import com.backend.adapters.in.rest.dto.HallDTO;
 import com.backend.adapters.in.rest.dto.SeatDTO;
-import com.backend.application.services.BaseService;
 import com.backend.application.services.HallService;
 import com.backend.domain.entities.HallEntity;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +15,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/hall")
 public class HallController extends BaseController<HallEntity, HallDTO, Long> {
-    private HallService hallService;
+    private final HallService hallService;
 
-    public HallController(BaseService<HallEntity, HallDTO, Long> service) {
-        super(service);
+    public HallController(HallService hallService) {
+        super(hallService);
+        this.hallService = hallService;
     }
 
     @GetMapping("/{id}/seats/full")

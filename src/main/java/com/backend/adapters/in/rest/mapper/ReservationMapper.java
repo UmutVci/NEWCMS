@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class ReservationMapper implements BaseMapper<ReservationEntity, ReservationDTO>
 {
-    private CustomerMapper customerMapper;
-    private SeatMapper seatMapper;
-    private SessionMapper sessionMapper;
+    private final CustomerMapper customerMapper = new CustomerMapper();
+    private final SeatMapper seatMapper = new SeatMapper();
+    private final SessionMapper sessionMapper = new SessionMapper();
 
     @Override
     public ReservationDTO toDto(ReservationEntity reservationEntity) {

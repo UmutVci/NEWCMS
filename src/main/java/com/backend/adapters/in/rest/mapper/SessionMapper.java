@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class SessionMapper implements BaseMapper<SessionEntity, SessionDTO>
 {
-    private HallMapper hallMapper;
-    private MovieMapper movieMapper;
+    private final HallMapper hallMapper = new HallMapper();
+    private final MovieMapper movieMapper = new MovieMapper();
 
 
     public SessionDTO toDto(SessionEntity sessionEntity)
