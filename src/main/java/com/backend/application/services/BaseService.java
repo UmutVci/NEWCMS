@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -31,7 +30,6 @@ public abstract class BaseService<T, D, ID extends Serializable> {
     }
 
     public D save(D dto) {
-        Objects.requireNonNull(dto, "DTO cannot be null");
         T entity = mapper.toEntity(dto);
         T savedEntity = repository.save(entity);
         return mapper.toDto(savedEntity);

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class SeatMapper implements BaseMapper<SeatEntity, SeatDTO> {
 
-    private final HallMapper hallMapper = new HallMapper();
+    private HallMapper hallMapper;
 
     @Override
     public SeatDTO toDto(SeatEntity seatEntity)

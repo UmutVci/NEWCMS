@@ -11,15 +11,15 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class SessionMapper implements BaseMapper<SessionEntity, SessionDTO>
 {
-    private final HallMapper hallMapper = new HallMapper();
-    private final MovieMapper movieMapper = new MovieMapper();
+    private HallMapper hallMapper;
+    private MovieMapper movieMapper;
 
 
     public SessionDTO toDto(SessionEntity sessionEntity)
     {
         SessionDTO dto = new SessionDTO();
         dto.setId(sessionEntity.getId());
-        dto.setTime(sessionEntity.getStartTime().toString());
+        dto.setTime(sessionEntity.getStartTime());
         dto.setMovieDTO(movieMapper.toDto(sessionEntity.getMovie()));
         dto.setHallDTO(hallMapper.toDto(sessionEntity.getHall()));
         dto.setPrice(dto.getPrice());
@@ -30,7 +30,7 @@ public class SessionMapper implements BaseMapper<SessionEntity, SessionDTO>
     {
         SessionEntity entity = new SessionEntity();
         entity.setId(sessionDTO.getId());
-        entity.setStartTime(LocalDateTime.parse(sessionDTO.getTime())); // String -> LocalDateTime
+        entity.setStartTime(LocalDateTime.now()); // String -> LocalDateTime
         entity.setPrice(sessionDTO.getPrice());
         entity.setMovie(movieMapper.toEntity(sessionDTO.getMovieDTO()));
         entity.setHall(hallMapper.toEntity(sessionDTO.getHallDTO()));

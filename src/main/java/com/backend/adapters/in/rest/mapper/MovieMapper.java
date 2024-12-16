@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 @Component
 @NoArgsConstructor
 public class MovieMapper implements BaseMapper<MovieEntity, MovieDTO> {
-    private final SessionMapper sessionMapper = new SessionMapper();
+    private SessionMapper sessionMapper;
 
     @Override
     public MovieDTO toDto(MovieEntity entity) {
