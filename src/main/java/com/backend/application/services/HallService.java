@@ -1,7 +1,9 @@
 package com.backend.application.services;
 
 import com.backend.adapters.in.rest.dto.HallDTO;
+import com.backend.adapters.in.rest.dto.SeatDTO;
 import com.backend.adapters.in.rest.mapper.BaseMapper;
+import com.backend.adapters.in.rest.mapper.SeatMapper;
 import com.backend.domain.entities.HallEntity;
 import com.backend.domain.entities.SeatEntity;
 import com.backend.domain.repository.BaseRepository;
@@ -15,7 +17,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class HallService extends BaseService<HallEntity, HallDTO, Long> {
-
+    private SeatMapper seatMapper;
     @Autowired
     private IHallRepository iHallRepository;
 
@@ -37,7 +39,7 @@ public class HallService extends BaseService<HallEntity, HallDTO, Long> {
         return true;
     }
 
-    public List<SeatEntity> showEmptySeats(Long id) {
+    public List<SeatDTO> showEmptySeats(Long id) {
         HallEntity hall = iHallRepository.findById(id)
                 .orElseThrow(
                         () -> new ResourceNotFoundException("Hall with that id couldnt find " + id)
@@ -45,6 +47,7 @@ public class HallService extends BaseService<HallEntity, HallDTO, Long> {
         List<SeatEntity> seatEntities = hall.getSeats();
         return seatEntities
                 .stream()
+                .map(seatMapper::toDto)
                 .filter(c -> !c.isBooked())
                 .collect(Collectors.toList());
     }
