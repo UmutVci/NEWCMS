@@ -20,6 +20,7 @@ public class SeatEntity extends BaseEntity  {
     @Column(nullable = false)
     private boolean isBooked = false;
 
+
     @ManyToOne
     @JoinColumn(name = "hall_id", nullable = false)
     private HallEntity hall;

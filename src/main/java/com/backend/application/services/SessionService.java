@@ -29,8 +29,6 @@ public class SessionService extends BaseService<SessionEntity, SessionDTO , Long
         SessionEntity savedSession = sessionRepository.save(sessionEntity);
         return sessionMapper.toDto(savedSession);
     }
-
-
     public LocalDateTime endTimeBySessionId(Long sessionId) {
         SessionEntity session = sessionRepository.findById(sessionId).orElseThrow(() ->
                 new ResourceNotFoundException("Session not found with ID" + sessionId));
@@ -40,3 +38,5 @@ public class SessionService extends BaseService<SessionEntity, SessionDTO , Long
 
 
 }
+
+

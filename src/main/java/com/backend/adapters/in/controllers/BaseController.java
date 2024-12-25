@@ -2,6 +2,7 @@ package com.backend.adapters.in.controllers;
 
 import com.backend.application.services.BaseService;
 import com.backend.adapters.in.rest.dto.BaseDTO;
+import lombok.NoArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

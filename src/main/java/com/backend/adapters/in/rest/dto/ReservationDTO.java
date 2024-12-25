@@ -11,4 +11,5 @@ public class ReservationDTO extends BaseDTO{
     private SeatDTO seats;
     private CustomerDTO customer;
     private SessionDTO sessions;
+    private Double price;
 }
