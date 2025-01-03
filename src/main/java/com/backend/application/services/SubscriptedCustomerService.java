@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class SubscriptedCustomerService extends BaseService<SubscriptedCustomer , SubscriptedCustomerDTO , Long> {
 
-    @Autowired
     private SubscriptedCustomerMapper mapper;
     @Autowired
     private ISubscriptionCustomerRepository repository;

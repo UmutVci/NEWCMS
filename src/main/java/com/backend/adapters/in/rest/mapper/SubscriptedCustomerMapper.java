@@ -13,7 +13,6 @@ public class SubscriptedCustomerMapper implements BaseMapper<SubscriptedCustomer
     public SubscriptedCustomerDTO toDto(SubscriptedCustomer subscriptedCustomerEntity) {
             SubscriptedCustomerDTO subscriptedCustomerDTO = new SubscriptedCustomerDTO();
             subscriptedCustomerDTO.setId(subscriptedCustomerEntity.getId());
-            subscriptedCustomerDTO.setName(subscriptedCustomerEntity.getName());
             subscriptedCustomerDTO.setAge(subscriptedCustomerEntity.getAge());
             subscriptedCustomerDTO.setMail(subscriptedCustomerEntity.getMail());
 
@@ -26,7 +25,6 @@ public class SubscriptedCustomerMapper implements BaseMapper<SubscriptedCustomer
         SubscriptedCustomer subscriptedCustomerEntity = new SubscriptedCustomer();
 
         subscriptedCustomerEntity.setId(subscriptedCustomerDTO.getId());
-        subscriptedCustomerEntity.setName(subscriptedCustomerDTO.getName());
         subscriptedCustomerEntity.setAge(subscriptedCustomerDTO.getAge());
         subscriptedCustomerEntity.setMail(subscriptedCustomerDTO.getMail());
 

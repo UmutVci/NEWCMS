@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SubscriptedCustomerDTO extends BaseDTO {
-    private String name;
     private int age;
     private String mail;
 }
