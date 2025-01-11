@@ -26,7 +26,7 @@ public class ReservationController extends BaseController<ReservationEntity, Res
     }
 
     @GetMapping("/{id}/discounted-price")
-    public ResponseEntity<Double> calculateDiscountedPrice(@PathVariable("id") Long id,
+    public ResponseEntity<Double> calculateDiscountedPrice (@PathVariable("id") Long id,
                                                            @RequestParam("discountPercentage") Double discountPercentage)
     {
         Double discountedPrice = reservationService.calculateDiscountedPrice(id, discountPercentage);
@@ -34,7 +34,7 @@ public class ReservationController extends BaseController<ReservationEntity, Res
     }
 
     @GetMapping("/{id}/eligibility")
-    public ResponseEntity<Boolean> checkCustomerEligibilty(@PathVariable("id") Long id)
+    public ResponseEntity <Boolean> checkCustomerEligibilty(@PathVariable("id") Long id)
     {
         boolean isEligible = reservationService.checkCustomerDiscountEligibility(id);
         return ResponseEntity.ok(isEligible);

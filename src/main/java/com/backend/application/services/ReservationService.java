@@ -26,7 +26,7 @@ public class ReservationService extends BaseService<ReservationEntity, Reservati
         super(repository, mapper);
     }
 
-    public Double calculateDiscountedPrice(Long id, Double discountPercentage) {
+    public Double calculateDiscountedPrice (Long id, Double discountPercentage) {
         ReservationEntity reservation = reservationRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Reservation not found"));
         Double originalPrice = reservation.getSession().getPrice();
@@ -41,7 +41,7 @@ public class ReservationService extends BaseService<ReservationEntity, Reservati
         return originalPrice - (originalPrice * (discountPercentage / 100));
     }
 
-    public boolean checkCustomerDiscountEligibility(Long customerId)
+    public boolean checkCustomerDiscountEligibility (Long customerId)
     {
         return subscriptionCustomerRepository.existsById(customerId);
     }

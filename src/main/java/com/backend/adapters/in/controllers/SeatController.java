@@ -14,7 +14,7 @@ public class SeatController extends BaseController<SeatEntity, SeatDTO, Long>{
 
     public SeatController(BaseService<SeatEntity, SeatDTO, Long> service)
     {
-        super(service);
+        super (service);
     }
 
 
