@@ -16,7 +16,6 @@ public class SessionService extends BaseService<SessionEntity, SessionDTO , Long
 
     @Autowired
     private ISessionRepository sessionRepository;
-    @Autowired
     private SessionMapper sessionMapper;
 
 
