@@ -9,17 +9,19 @@ import com.backend.application.services.ReservationService;
 import com.backend.application.services.SessionService;
 import com.backend.domain.entities.ReservationEntity;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/reservation")
+@RequestMapping("/api/reservations")
 public class ReservationController extends BaseController<ReservationEntity, ReservationDTO, Long>{
+    @Autowired
     private final ReservationService reservationService;
 
-
+    @Autowired
     public ReservationController(ReservationService reservationService) {
         super(reservationService);
         this.reservationService = reservationService;

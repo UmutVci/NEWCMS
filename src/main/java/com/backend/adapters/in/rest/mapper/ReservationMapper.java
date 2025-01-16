@@ -3,12 +3,14 @@ package com.backend.adapters.in.rest.mapper;
 import com.backend.adapters.in.rest.dto.ReservationDTO;
 import com.backend.domain.entities.ReservationEntity;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 @NoArgsConstructor
 public class ReservationMapper implements BaseMapper<ReservationEntity, ReservationDTO>
 {
+    @Autowired
     private CustomerMapper customerMapper;
     private SeatMapper seatMapper;
     private SessionMapper sessionMapper;

@@ -7,7 +7,6 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "subs")
 public class SubscriptedCustomer extends CustomerEntity{
     @Column(name="mail", nullable = false, unique = true)
     private String mail;

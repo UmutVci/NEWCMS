@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository("hallRepository")
 public interface IHallRepository extends BaseRepository<HallEntity, Long> {
-    HallEntity findByName(String title);
 }

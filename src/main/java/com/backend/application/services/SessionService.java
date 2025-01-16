@@ -1,8 +1,10 @@
 package com.backend.application.services;
 
 import com.backend.adapters.in.rest.dto.SessionDTO;
+import com.backend.adapters.in.rest.mapper.BaseMapper;
 import com.backend.adapters.in.rest.mapper.SessionMapper;
 import com.backend.domain.entities.SessionEntity;
+import com.backend.domain.repository.BaseRepository;
 import com.backend.domain.repository.ISessionRepository;
 import com.backend.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +20,10 @@ public class SessionService extends BaseService<SessionEntity, SessionDTO , Long
     private ISessionRepository sessionRepository;
     private SessionMapper sessionMapper;
 
-
-    public SessionService(ISessionRepository sessionRepository, SessionMapper mapper) {
-        super(sessionRepository, mapper);
+    public SessionService(BaseRepository<SessionEntity, Long> repository, BaseMapper<SessionEntity, SessionDTO> mapper) {
+        super(repository, mapper);
     }
+
 
     public SessionDTO createSession(SessionDTO sessionDTO) {
         SessionEntity sessionEntity = sessionMapper.toEntity(sessionDTO);

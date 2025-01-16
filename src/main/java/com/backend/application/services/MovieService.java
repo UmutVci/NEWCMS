@@ -8,6 +8,7 @@ import com.backend.domain.entities.MovieEntity;
 import com.backend.domain.repository.BaseRepository;
 import com.backend.domain.repository.IMovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,7 @@ public class MovieService extends BaseService<MovieEntity, MovieDTO, Long> {
         Specification<MovieEntity> spec = Specification.where(MovieSpecification.hasTitle(filter.getTitle()))
                 .and(MovieSpecification.hasGenre(filter.getGenre()));
 
-        return iMovieRepository.findAll(spec);
+        return iMovieRepository.findAll((Sort) spec);
     }
 
 }

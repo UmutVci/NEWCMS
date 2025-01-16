@@ -3,6 +3,7 @@ package com.backend.adapters.in.rest.mapper;
 import com.backend.adapters.in.rest.dto.SessionDTO;
 import com.backend.domain.entities.SessionEntity;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class SessionMapper implements BaseMapper<SessionEntity, SessionDTO>
 {
+    @Autowired
     private HallMapper hallMapper;
     private MovieMapper movieMapper;
 

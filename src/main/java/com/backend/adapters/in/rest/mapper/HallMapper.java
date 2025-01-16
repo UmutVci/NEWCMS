@@ -3,6 +3,7 @@ package com.backend.adapters.in.rest.mapper;
 import com.backend.adapters.in.rest.dto.HallDTO;
 import com.backend.domain.entities.HallEntity;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class HallMapper implements BaseMapper<HallEntity, HallDTO> {
 
+    @Autowired
     private SeatMapper seatMapper;
     private SessionMapper sessionMapper;
 

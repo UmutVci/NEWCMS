@@ -3,6 +3,7 @@ package com.backend.adapters.in.rest.mapper;
 import com.backend.adapters.in.rest.dto.MovieDTO;
 import com.backend.domain.entities.MovieEntity;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
@@ -10,6 +11,7 @@ import java.util.stream.Collectors;
 @Component
 @NoArgsConstructor
 public class MovieMapper implements BaseMapper<MovieEntity, MovieDTO> {
+    @Autowired
     private SessionMapper sessionMapper;
 
     @Override

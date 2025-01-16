@@ -3,6 +3,7 @@ package com.backend.adapters.in.rest.mapper;
 import com.backend.adapters.in.rest.dto.SeatDTO;
 import com.backend.domain.entities.SeatEntity;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component

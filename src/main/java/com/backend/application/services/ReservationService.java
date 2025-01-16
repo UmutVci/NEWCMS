@@ -26,6 +26,7 @@ public class ReservationService extends BaseService<ReservationEntity, Reservati
         super(repository, mapper);
     }
 
+
     public Double calculateDiscountedPrice (Long id, Double discountPercentage) {
         ReservationEntity reservation = reservationRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Reservation not found"));
