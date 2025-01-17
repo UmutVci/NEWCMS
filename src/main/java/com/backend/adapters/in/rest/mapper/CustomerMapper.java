@@ -14,6 +14,7 @@ public class CustomerMapper implements BaseMapper<CustomerEntity, CustomerDTO> {
         CustomerDTO customerDTO = new CustomerDTO();
         customerDTO.setId(entity.getId());
         customerDTO.setName(entity.getName());
+        customerDTO.setSurname(entity.getSurname());
         return customerDTO;
     }
 
@@ -22,6 +23,7 @@ public class CustomerMapper implements BaseMapper<CustomerEntity, CustomerDTO> {
         CustomerEntity entity = new CustomerEntity();
         entity.setId(dto.getId());
         entity.setName(dto.getName());
+        entity.setSurname(dto.getSurname());
         return entity;
     }
 }

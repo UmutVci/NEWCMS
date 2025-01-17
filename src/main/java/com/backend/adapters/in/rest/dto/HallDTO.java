@@ -13,6 +13,5 @@ public class HallDTO extends BaseDTO {
     private String name;
     private int capacity;
     private String type;
-    private List<SessionDTO> sessionDTOS;
-    private List<SeatDTO> seatDTOS;
+
 }

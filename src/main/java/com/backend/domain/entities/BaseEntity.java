@@ -16,31 +16,5 @@ public abstract class BaseEntity {
     private Long id;
     @Column(updatable = false)
     private LocalDateTime createdAt;
-
     private LocalDateTime updatedAt;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-   // @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") must be added if we have to show a format at the API
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 }

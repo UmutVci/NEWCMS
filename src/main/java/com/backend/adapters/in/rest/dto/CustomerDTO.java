@@ -10,5 +10,7 @@ import lombok.NoArgsConstructor;
 
 public class CustomerDTO extends BaseDTO {
     private String name;
+    private String surname;
+
 
 }

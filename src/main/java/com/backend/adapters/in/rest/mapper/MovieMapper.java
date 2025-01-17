@@ -22,10 +22,6 @@ public class MovieMapper implements BaseMapper<MovieEntity, MovieDTO> {
         movieDTO.setGenre(entity.getGenre());
         movieDTO.setDuration(entity.getDuration());
         movieDTO.setPrice(entity.getPrice());
-        movieDTO.setSessionDTOS(entity.getSessions()
-                .stream()
-                .map(sessionMapper::toDto)
-                .collect(Collectors.toList()));
         return movieDTO;
     }
 
@@ -37,10 +33,6 @@ public class MovieMapper implements BaseMapper<MovieEntity, MovieDTO> {
         movieEntity.setGenre(dto.getGenre());
         movieEntity.setDuration(dto.getDuration());
         movieEntity.setPrice(dto.getPrice());
-        movieEntity.setSessions(dto.getSessionDTOS()
-                .stream()
-                .map(sessionMapper::toEntity)
-                .collect(Collectors.toList()));
         return movieEntity;
     }
 }

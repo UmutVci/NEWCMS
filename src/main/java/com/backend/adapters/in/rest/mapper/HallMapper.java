@@ -24,14 +24,6 @@ public class HallMapper implements BaseMapper<HallEntity, HallDTO> {
         hallDTO.setName(hallEntity.getName());
         hallDTO.setCapacity(hallEntity.getCapacity());
         hallDTO.setType(hallEntity.getType());
-        hallDTO.setSessionDTOS(hallEntity.getSessions()
-                .stream()
-                .map(sessionMapper::toDto)
-                .collect(Collectors.toList()));
-        hallDTO.setSeatDTOS(hallEntity.getSeats()
-                .stream()
-                .map(seatMapper::toDto)
-                .collect(Collectors.toList()));
         return hallDTO;
     }
 
@@ -39,16 +31,9 @@ public class HallMapper implements BaseMapper<HallEntity, HallDTO> {
     public HallEntity toEntity(HallDTO dto) {
         HallEntity hallEntity = new HallEntity();
         hallEntity.setName(dto.getName());
+        hallEntity.setCapacity(dto.getCapacity());
         hallEntity.setType(dto.getType());
         hallEntity.setUpdatedAt(LocalDateTime.now());
-        hallEntity.setSessions(dto.getSessionDTOS()
-                .stream()
-                .map(sessionMapper::toEntity)
-                .collect(Collectors.toList()));
-        hallEntity.setSeats(dto.getSeatDTOS()
-                .stream()
-                .map(seatMapper::toEntity)
-                .collect(Collectors.toList()));
         return hallEntity;
     }
 

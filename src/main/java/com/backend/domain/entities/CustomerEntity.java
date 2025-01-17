@@ -18,7 +18,5 @@ public class CustomerEntity extends BaseEntity {
     private String name;
     @Column(name = "surname", nullable = false)
     private String surname;
-    @Column(name ="age", nullable = false)
-    private int age;
 
 }

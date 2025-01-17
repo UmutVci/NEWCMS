@@ -15,4 +15,5 @@ public class SessionDTO extends BaseDTO
     private MovieDTO movieDTO;
     private HallDTO hallDTO;
     private double price;
+
 }

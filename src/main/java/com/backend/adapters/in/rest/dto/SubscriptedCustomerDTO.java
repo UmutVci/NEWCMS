@@ -10,4 +10,7 @@ import lombok.NoArgsConstructor;
 public class SubscriptedCustomerDTO extends BaseDTO {
     private int age;
     private String mail;
+    private String link;
+
+
 }
