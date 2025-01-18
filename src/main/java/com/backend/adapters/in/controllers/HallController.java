@@ -35,4 +35,8 @@ public class HallController extends BaseController<HallEntity, HallDTO, Long> {
         return ResponseEntity.ok(hallService.showEmptySeats(id));
     }
 
+    @Override
+    public Class<? extends BaseController<HallEntity, HallDTO, Long>> getControllerClass() {
+        return HallController.class;
+    }
 }

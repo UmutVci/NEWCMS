@@ -26,4 +26,8 @@ public class CustomerController extends BaseController<CustomerEntity, CustomerD
         return ResponseEntity.ok(customerService.isSub(id));
     }
 
+    @Override
+    public Class<? extends BaseController<CustomerEntity, CustomerDTO, Long>> getControllerClass() {
+        return CustomerController.class;
+    }
 }

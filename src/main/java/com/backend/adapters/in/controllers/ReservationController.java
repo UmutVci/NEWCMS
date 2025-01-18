@@ -41,4 +41,9 @@ public class ReservationController extends BaseController<ReservationEntity, Res
         boolean isEligible = reservationService.checkCustomerDiscountEligibility(id);
         return ResponseEntity.ok(isEligible);
     }
+
+    @Override
+    public Class<? extends BaseController<ReservationEntity, ReservationDTO, Long>> getControllerClass() {
+        return ReservationController.class;
+    }
 }

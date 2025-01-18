@@ -39,4 +39,9 @@ public class MovieController extends BaseController<MovieEntity, MovieDTO, Long>
                 .map(movieMapper::toDto)
                 .toList());
     }
+
+    @Override
+    public Class<? extends BaseController<MovieEntity, MovieDTO, Long>> getControllerClass() {
+        return MovieController.class;
+    }
 }

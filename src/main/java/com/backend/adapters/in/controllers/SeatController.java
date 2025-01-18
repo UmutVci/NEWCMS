@@ -24,5 +24,8 @@ public class SeatController extends BaseController<SeatEntity, SeatDTO, Long>{
     }
 
 
-
+    @Override
+    public Class<? extends BaseController<SeatEntity, SeatDTO, Long>> getControllerClass() {
+        return SeatController.class;
+    }
 }

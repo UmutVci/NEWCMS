@@ -17,4 +17,9 @@ public class SubscriptedCustomerController extends BaseController<SubscriptedCus
         super(service);
     }
 
+    @Override
+    public Class<? extends BaseController<SubscriptedCustomer, SubscriptedCustomerDTO, Long>> getControllerClass() {
+        return SubscriptedCustomerController.class;
+    }
+
 }

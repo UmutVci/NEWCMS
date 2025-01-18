@@ -1,9 +1,11 @@
 package com.backend.adapters.in.controllers;
 
+import com.backend.application.assemblers.BaseAssembler;
 import com.backend.application.services.BaseService;
 import com.backend.adapters.in.rest.dto.BaseDTO;
 import com.backend.exceptions.ResourceNotFoundException;
 import lombok.NoArgsConstructor;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,18 +28,26 @@ public abstract class BaseController<T, D extends BaseDTO, ID extends Serializab
     }
 
     @GetMapping
-    public ResponseEntity<List<D>> findAll() {
-        List<D> dtos = service.findAll();
-        return ResponseEntity.ok(dtos);
+    public CollectionModel<EntityModel<D>> findAll() {
+        List<EntityModel<D>> entityModels = service.findAll()
+                .stream()
+                .map(D -> EntityModel.of(D,
+                            linkTo(methodOn(getControllerClass()).findById((ID) D.getId())).withSelfRel()
+                        ))
+                .toList();
+        return CollectionModel.of(entityModels, linkTo(methodOn(getControllerClass()).findAll()).withRel("all-entities"));
     }
+
 
     @GetMapping("/{id}")
     public EntityModel<D> findById(@PathVariable ID id) {
         D entity = service.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Entity with that id couldnt find " + id)
         );
-        // TODO : inside of methodOn must be generics
-        return EntityModel.of(entity, linkTo(methodOn(CustomerController.class).findById((Long) id)).withSelfRel());
+        return EntityModel.of(entity,
+                linkTo(methodOn(getControllerClass()).findById(id)).withSelfRel(),
+                linkTo(methodOn(getControllerClass()).findAll()).withRel("all-entities")
+        );
     }
 
     @PostMapping
@@ -61,4 +71,6 @@ public abstract class BaseController<T, D extends BaseDTO, ID extends Serializab
                 .toUri();
         return ResponseEntity.noContent().location(collectionUri).build();
     }
+    public abstract Class<? extends BaseController<T,D , ID>> getControllerClass();
+
 }

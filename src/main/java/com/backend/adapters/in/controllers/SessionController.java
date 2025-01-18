@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @RestController
@@ -29,6 +28,11 @@ public class SessionController extends BaseController<SessionEntity, SessionDTO,
     @GetMapping("/{id}/session/end")
     public ResponseEntity<LocalDateTime> endTimeBySessionId(@PathVariable("id") Long id) {
         return ResponseEntity.ok(sessionService.endTimeBySessionId(id));
+    }
+
+    @Override
+    public Class<? extends BaseController<SessionEntity, SessionDTO, Long>> getControllerClass() {
+        return SessionController.class;
     }
 
 
