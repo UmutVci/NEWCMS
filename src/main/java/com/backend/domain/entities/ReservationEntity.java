@@ -20,5 +20,7 @@ public class ReservationEntity extends BaseEntity  {
     @JoinColumn(name = "seat_id", referencedColumnName = "id")
     private SeatEntity seat;
 
+    private double price;
+
 
 }

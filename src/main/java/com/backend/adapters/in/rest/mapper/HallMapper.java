@@ -37,4 +37,12 @@ public class HallMapper implements BaseMapper<HallEntity, HallDTO> {
         return hallEntity;
     }
 
+    @Override
+    public void update(HallEntity hallEntity, HallDTO dto) {
+        hallEntity.setName(dto.getName());
+        hallEntity.setCapacity(dto.getCapacity());
+        hallEntity.setType(dto.getType());
+        hallEntity.setUpdatedAt(LocalDateTime.now());
+    }
+
 }

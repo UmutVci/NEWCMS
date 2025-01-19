@@ -12,6 +12,7 @@ public class SeatDTO extends BaseDTO{
     private int seatColumn;
     private boolean isBooked;
     private HallDTO hallDTO;
+    private String seatType;
 
 
 }

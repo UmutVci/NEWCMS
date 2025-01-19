@@ -38,4 +38,13 @@ public class SessionMapper implements BaseMapper<SessionEntity, SessionDTO>
         entity.setHall(hallMapper.toEntity(sessionDTO.getHallDTO()));
         return entity;
     }
+
+    @Override
+    public void update(SessionEntity entity, SessionDTO dto) {
+        entity.setId(dto.getId());
+        entity.setStartTime(LocalDateTime.now()); // String -> LocalDateTime
+        entity.setPrice(dto.getPrice());
+        entity.setMovie(movieMapper.toEntity(dto.getMovieDTO()));
+        entity.setHall(hallMapper.toEntity(dto.getHallDTO()));
+    }
 }

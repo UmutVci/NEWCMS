@@ -1,6 +1,8 @@
 package com.backend.adapters.in.controllers;
 
 import com.backend.adapters.in.rest.dto.SessionDTO;
+import com.backend.adapters.in.rest.mapper.HallMapper;
+import com.backend.adapters.in.rest.mapper.MovieMapper;
 import com.backend.application.services.BaseService;
 import com.backend.application.services.SessionService;
 import com.backend.domain.entities.SessionEntity;
@@ -20,9 +22,13 @@ import java.time.LocalDateTime;
 public class SessionController extends BaseController<SessionEntity, SessionDTO,Long  > {
     @Autowired
     private SessionService sessionService;
+    private final MovieMapper movieMapper;
+    private final HallMapper hallMapper;
     @Autowired
-    public SessionController(BaseService<SessionEntity, SessionDTO, Long> service) {
+    public SessionController(BaseService<SessionEntity, SessionDTO, Long> service, MovieMapper movieMapper, HallMapper hallMapper) {
         super(service);
+        this.movieMapper = movieMapper;
+        this.hallMapper = hallMapper;
     }
 
     @GetMapping("/{id}/session/end")

@@ -26,4 +26,11 @@ public class CustomerMapper implements BaseMapper<CustomerEntity, CustomerDTO> {
         entity.setSurname(dto.getSurname());
         return entity;
     }
+
+    @Override
+    public void update(CustomerEntity entity, CustomerDTO dto) {
+        entity.setName(dto.getName());
+        entity.setSurname(dto.getSurname());
+    }
+
 }

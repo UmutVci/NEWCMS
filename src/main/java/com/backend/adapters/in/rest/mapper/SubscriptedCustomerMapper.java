@@ -30,4 +30,11 @@ public class SubscriptedCustomerMapper implements BaseMapper<SubscriptedCustomer
 
         return subscriptedCustomerEntity;
     }
+
+    @Override
+    public void update(SubscriptedCustomer entity, SubscriptedCustomerDTO dto) {
+        entity.setId(dto.getId());
+        entity.setAge(dto.getAge());
+        entity.setMail(dto.getMail());
+    }
 }

@@ -33,4 +33,11 @@ public class ReservationMapper implements BaseMapper<ReservationEntity, Reservat
         entity.setSession(sessionMapper.toEntity(reservationDTO.getSessions()));
         return entity;
     }
+
+    @Override
+    public void update(ReservationEntity entity, ReservationDTO dto) {
+        entity.setCustomer(customerMapper.toEntity(dto.getCustomer()));
+        entity.setSeat(seatMapper.toEntity(dto.getSeats()));
+        entity.setSession(sessionMapper.toEntity(dto.getSessions()));
+    }
 }

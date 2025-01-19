@@ -8,4 +8,5 @@ public interface BaseMapper<T, D> {
 
      T toEntity(D dto);
 
+     void update(T entity, D dto);
 }

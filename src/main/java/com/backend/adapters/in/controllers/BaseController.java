@@ -1,13 +1,11 @@
 package com.backend.adapters.in.controllers;
 
-import com.backend.application.assemblers.BaseAssembler;
 import com.backend.application.services.BaseService;
 import com.backend.adapters.in.rest.dto.BaseDTO;
 import com.backend.exceptions.ResourceNotFoundException;
-import lombok.NoArgsConstructor;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.http.HttpStatus;
+import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -71,6 +69,21 @@ public abstract class BaseController<T, D extends BaseDTO, ID extends Serializab
                 .toUri();
         return ResponseEntity.noContent().location(collectionUri).build();
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@RequestBody D dto, @PathVariable ID id){
+
+        D updatedEntity = service.update(dto, id);
+        EntityModel<D> entityModel = EntityModel.of(
+                updatedEntity,
+                linkTo(methodOn(getClass()).update(dto, id)).withSelfRel(), // Self link
+                linkTo(methodOn(getClass()).findAll()).withRel("all-entities"));
+
+        return ResponseEntity
+                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
+                .body(entityModel);
+
+    }
+    
     public abstract Class<? extends BaseController<T,D , ID>> getControllerClass();
 
 }

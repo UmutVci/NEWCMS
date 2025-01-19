@@ -35,4 +35,13 @@ public class MovieMapper implements BaseMapper<MovieEntity, MovieDTO> {
         movieEntity.setPrice(dto.getPrice());
         return movieEntity;
     }
+
+    @Override
+    public void update(MovieEntity movieEntity, MovieDTO dto) {
+        movieEntity.setId(dto.getId());
+        movieEntity.setTitle(dto.getTitle());
+        movieEntity.setGenre(dto.getGenre());
+        movieEntity.setDuration(dto.getDuration());
+        movieEntity.setPrice(dto.getPrice());
+    }
 }

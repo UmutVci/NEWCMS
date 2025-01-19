@@ -34,4 +34,12 @@ public class SeatMapper implements BaseMapper<SeatEntity, SeatDTO> {
         entity.setHall(hallMapper.toEntity(seatDTO.getHallDTO()));
         return entity;
     }
+
+    @Override
+    public void update(SeatEntity entity, SeatDTO dto) {
+        entity.setSeatRow(entity.getSeatRow());
+        entity.setSeatColumn(entity.getSeatColumn());
+        entity.setBooked(entity.isBooked());
+        entity.setHall(hallMapper.toEntity(dto.getHallDTO()));
+    }
 }
